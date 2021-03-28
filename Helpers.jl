@@ -1,5 +1,15 @@
 import Base: *, -, +
 
+function Array(d::Dict)
+  arr = []
+
+  for (k, v) in d
+    arr = [arr; (key=k, value=v)]
+  end
+
+  arr
+end
+
 function *(d::Dict{<:Any, <:Number}, n::Number)
   d = deepcopy(d)
   for (key, value) in d
